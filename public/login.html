@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Login</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body class="quizapp-body login-container">
+  <h1 class="quizapp-title">Login</h1>
+  <form id="loginForm">
+    <input class="quizapp-input" id="emailOrUsername" placeholder="Email or username" required /><br/>
+    <input class="quizapp-input" id="password" type="password" placeholder="Password" required /><br/>
+    <button class="quizapp-btn" type="submit">Log in</button>
+  </form>
+  <div id="msg"></div>
+  <button class="quizapp-btn login-back-btn" onclick="window.location.href='/signup.html'">Go to Signup</button>
+  <script src="/javascripts/auth.js"></script>
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', login);
+  </script>
+</body>
+</html>

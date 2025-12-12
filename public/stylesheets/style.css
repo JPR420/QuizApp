@@ -1,8 +1,248 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+/* ========================================================
+   GLOBAL STYLES
+   ======================================================== */
 
-a {
-  color: #00B7FF;
-}
+
+   body.quizapp-body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+
+  }
+  
+  h1.quizapp-title, h2.quizapp-subtitle {
+    text-align: center;
+    color: #444;
+  }
+  
+  a.quizapp-link {
+    text-decoration: none;
+    color: #1e90ff;
+    margin: 0 10px;
+  }
+  
+  button.quizapp-btn {
+    padding: 8px 16px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #1e90ff;
+    color: white;
+    cursor: pointer;
+  }
+  
+  button.quizapp-btn:hover {
+    background-color: #1c86ee;
+  }
+  
+  /* ========================================================
+     HOME PAGE
+     ======================================================== */
+  .home-container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .home-links {
+    margin-top: 20px;
+  }
+  
+  /* ========================================================
+     LOGIN PAGE
+     ======================================================== */
+  .login-container {
+    width: 320px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .login-container input.quizapp-input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .login-container #msg {
+    color: red;
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .login-back-btn {
+    display: block;
+    margin-top: 10px;
+    background-color: #aaa;
+  }
+  
+  .login-back-btn:hover {
+    background-color: #888;
+  }
+  
+  /* ========================================================
+     SIGNUP PAGE
+     ======================================================== */
+  .signup-container {
+    width: 320px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .signup-container input.quizapp-input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .signup-container #msg {
+    color: red;
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .signup-back-btn {
+    display: block;
+    margin-top: 10px;
+    background-color: #aaa;
+  }
+  
+  .signup-back-btn:hover {
+    background-color: #888;
+  }
+  
+  /* ========================================================
+     QUIZ PAGE
+     ======================================================== */
+  .quiz-container {
+    max-width: 700px;
+    margin: 20px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .quiz-question {
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  .quiz-choices button.quizapp-btn {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+  
+  /* ========================================================
+     RESULTS PAGE
+     ======================================================== */
+
+  .results-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+  .resultScreen{
+    margin-top: 5%;
+    width: 30%;
+    background-color: rgb(219, 217, 217);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+
+  }
+
+
+  .result-subtitle{
+    text-align: center;
+    color: #000000;
+  }
+
+  
+  .results-container #result {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    
+  }
+  
+  .results-buttons button.quizapp-btn {
+    margin: 5px 0 40px 0;
+
+  }
+  
+  /* ========================================================
+     PROFILE PAGE
+     ======================================================== */
+  .profile-container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile-header h2 {
+    margin: 0;
+  }
+  
+  .profile-history {
+    margin-top: 20px;
+  }
+  
+  .profile-history table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .profile-history th, .profile-history td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .profile-history th {
+    background-color: #1e90ff;
+    color: white;
+  }
+  
+  .profile-logout-btn {
+    background-color: #ff4d4d;
+  }
+  
+  .profile-logout-btn:hover {
+    background-color: #e63939;
+  }
+  
