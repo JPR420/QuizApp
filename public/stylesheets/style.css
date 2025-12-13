@@ -28,8 +28,17 @@
     color: #1e90ff;
     margin: 0 10px;
   }
+
+  a.quizapp-link:hover {
+    color: #104e8b;
+    transform: scale(1.05);
+    transition: transform 0.2s, color 0.2s;
+}
   
+
+
   button.quizapp-btn {
+    
     padding: 8px 16px;
     margin: 5px 0;
     border: none;
@@ -46,42 +55,114 @@
   /* ========================================================
      HOME PAGE
      ======================================================== */
-  .home-container {
-    text-align: center;
-    margin-top: 50px;
+     .home-header {
+      text-align: center;
+      margin-top: 50px;
+      animation: fadeIn 1.5s ease forwards;
+      color: #000000;
   }
   
   .home-links {
-    margin-top: 20px;
+      margin-top: 30px;
+      text-align: center;
+      animation: fadeIn 2s ease forwards;
+  }
+  
+  .home-links .quizapp-btn {
+      margin: 5px;
+      padding: 10px 20px;
+      font-size: 1em;
+  }
+  
+  .intro-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 40px;
+      animation: fadeIn 2.5s ease forwards;
+  }
+  
+  .intro-cards .card {
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      padding: 20px;
+      width: 250px;
+      transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .intro-cards .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  }
+  
+  .intro-cards h3 {
+      color: #1e90ff;
+      margin-bottom: 10px;
+  }
+  
+  .intro-cards p, .intro-cards ul {
+      color: #333;
+      font-size: 0.95em;
+      line-height: 1.4;
+  }
+  
+  .animate-fade {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1.5s ease forwards;
+  }
+  
+  @keyframes fadeIn {
+      to {
+          opacity: 1;
+          transform: translateY(0);
+      }
   }
   
   /* ========================================================
      LOGIN PAGE
      ======================================================== */
   .login-container {
-    width: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    width: 40%;
     margin: 50px auto;
     padding: 30px;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-top: 5%;
   }
   
   .login-container input.quizapp-input {
-    width: 100%;
+    
     padding: 10px;
     margin: 8px 0;
     border-radius: 5px;
     border: 1px solid #ccc;
   }
   
+  .formDiv{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+  }
+
   .login-container #msg {
     color: red;
     margin-top: 10px;
     text-align: center;
   }
   
-  .login-back-btn {
+  .signupButton{
+    
     display: block;
     margin-top: 10px;
     background-color: #aaa;
@@ -126,31 +207,93 @@
   .signup-back-btn:hover {
     background-color: #888;
   }
-  
+
+ 
   /* ========================================================
      QUIZ PAGE
      ======================================================== */
   .quiz-container {
-    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 10%;
+    width: 60%;
     margin: 20px auto;
     background-color: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   }
-  
-  .quiz-question {
+
+
+  .quizQuestion{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50% ;
     font-weight: bold;
     margin-bottom: 15px;
+
+
   }
   
-  .quiz-choices button.quizapp-btn {
-    display: block;
-    width: 100%;
-    margin-bottom: 10px;
-    text-align: left;
-  }
-  
+  .quiz-card {
+    background: #ffffff;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 12px;
+    max-width: 700px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.quiz-question {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.quiz-choices {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.answerButton {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #829fb8, #58a4a8);
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.answerButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+    background: linear-gradient(135deg, #8ab5e0, #46b9c9);
+}
+
+.quiz-progress {
+    font-size: 14px;
+    color: #666;
+    text-align: right;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(10px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
   /* ========================================================
      RESULTS PAGE
      ======================================================== */
@@ -167,7 +310,7 @@
 
   .resultScreen{
     margin-top: 5%;
-    width: 30%;
+    width: 50%;
     background-color: rgb(219, 217, 217);
     display: flex;
     flex-direction: column;
@@ -181,6 +324,7 @@
   .result-subtitle{
     text-align: center;
     color: #000000;
+    
   }
 
   
@@ -199,19 +343,48 @@
      PROFILE PAGE
      ======================================================== */
   .profile-container {
-    max-width: 800px;
+    width: 60%;
     margin: 50px auto;
     background-color: white;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   
   .profile-header {
     display: flex;
-    justify-content: space-between;
+     flex-direction: column;
+    justify-content: center;
     align-items: center;
     margin-bottom: 20px;
+    
+  }
+
+.reportButtonDiv{
+  display: flex;
+  justify-content: flex-end;
+
+}
+
+  .playAgainButton{
+    margin-top: 5%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+  }
+  
+  .topButton{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    
+  
   }
   
   .profile-header h2 {
@@ -238,11 +411,182 @@
     color: white;
   }
   
-  .profile-logout-btn {
-    background-color: #ff4d4d;
+  #logoutBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    color: white;
+    background-color: #8f1b1b;
+    height: 30px;
+    width : 70px
+
   }
-  
-  .profile-logout-btn:hover {
-    background-color: #e63939;
+
+  #logoutBtn:hover {
+    background-color: #f77878;
+    cursor: pointer;
+    color: #180707;
+
   }
+
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    padding-top: 60px;
+    z-index: 999;
+}
+
+
+.modal-content {
+    background: white;
+    width: 70%;
+    height: 900px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 8px;
+    overflow-y: auto;
+
+        /* Hide scrollbar */
+        scrollbar-width: none;        /* Firefox */
+        -ms-overflow-style: none;     /* IE & Edge */
+}
+
+/* Chrome, Safari, Opera */
+.modal-content::-webkit-scrollbar {
+  display: none;
+}
+
+.modalButton{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+ 
+}
+
+.close {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: right;
+  cursor: pointer;
+  font-size: 20px;
+  position: fixed;
+  height: 30px;
+  width: 30px;
+  border-radius: 10px;
+  background-color: #ddd7d7;
+}
+
+.close:hover{
+  background-color: gray;
+}
+
+.report-card {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    padding: 12px;
+    margin-bottom: 12px;
+    border-radius: 6px;
+    background: #f9f9f9;
+}
+
+.question-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100px;
+  width: 90%;
+  margin: 15px;
+  background-color: rgb(214, 213, 213);
+  border-radius: 15px;
+
+  overflow-y: auto;
+
+}
+
+.details-list{
+  overflow-y: auto;
+
+}
+
+.theQuestion{
+  margin: 5px;
+}
+
+
+.buttonSeparator{
+  width: 10px;
+}
+
+
+
+.leaderboard-container {
+  max-width: 800px;
+  margin: 50px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.leaderboard-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.leaderboard-table th, .leaderboard-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+.leaderboard-table th {
+  background-color: #1e90ff;
+  color: white;
+}
+
+.leaderboard-table tr:nth-child(even) {
+  background-color: #f4f4f4;
+}
+
+
+.leaderboardDiv{
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+
   
+}
+
+.leaderboardTable{
+  width: 70%;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+
+}

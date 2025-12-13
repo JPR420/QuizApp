@@ -12,6 +12,8 @@ var usersRouter = require('./routes/users');
 const apiQuestions = require('./routes/api/questions');
 const apiAuth = require('./routes/api/auth');
 const scoreRoutes = require('./routes/api/score');
+const leaderboard = require ( './routes/api/leaderboard')
+const triviaRouter = require('./routes/api/trivia');
 var app = express();
 
 MONGO_URI = '';
@@ -51,7 +53,8 @@ app.use('/users', usersRouter);
 app.use('/api/questions', apiQuestions);
 app.use('/api/auth', apiAuth);
 app.use('/api/score', scoreRoutes);
-
+app.use('/api/leaderboard', leaderboard);
+app.use('/api/trivia', triviaRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

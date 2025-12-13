@@ -38,7 +38,7 @@ async function signup(e) {
     const msgEl = document.getElementById('msg');
     if (res.ok) {
       msgEl.textContent = 'Logged in — redirecting...';
-      setTimeout(() => window.location.href = '/quiz.html', 600);
+      setTimeout(() => window.location.href = '/profile.html', 600);
     } else {
       msgEl.textContent = data.message || 'Login failed';
     }

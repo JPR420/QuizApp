@@ -8,22 +8,33 @@ let details = [];
 
 async function load() {
 
+  const urlParams = new URLSearchParams(window.location.search);
+  const triviaMode = urlParams.get('trivia');
+
 
   var count = 10 ;
   localStorage.setItem('lastCount', count);
 
-  const res = await fetch(`/api/questions?count=${count}`);
-  const data = await res.json();
+  let res;
 
+  if (triviaMode) {
+      res = await fetch('/api/trivia?amount=10'); // call trivia API
+
+  } else {
+      res = await fetch(`/api/questions?count=10`);
+  }
+
+  const data = await res.json();
+  console.log(data);
   if (!data.questions || !data.questions.length) {
-    document.getElementById('container').innerHTML = 'No questions available';
-    return;
+      document.getElementById('container').innerHTML = 'No questions available';
+      return;
   }
 
   questions = data.questions.map(q => {
-    const choices = [q.A, q.B, q.C, q.D];
-    const correct = 'ABCD'.indexOf(q.answer);
-    return { question: q.question, choices, correct };
+      const choices = [q.A, q.B, q.C, q.D];
+      const correct = 'ABCD'.indexOf(q.answer);
+      return { question: q.question, choices, correct };
   });
 
   render();
@@ -65,11 +76,15 @@ function render() {
   
   const q = questions[cur];
   const choicesHtml = q.choices.map((ch, i) =>
-    `<button onclick="choose(${i})">${ch}</button>`).join('<br/>');
+    `<button class= "answerButton" onclick="choose(${i})">${ch}</button>`).join('<br/>');
 
-  c.innerHTML = `<div><strong>Q${cur+1}.</strong> ${q.question}</div>
-                 <div>${choicesHtml}</div>
-                 <div>Progress: ${cur+1}/${questions.length}</div>`;
+  c.innerHTML = `
+    <div class="quiz-card">
+      <div class="quiz-question"><strong>Q${cur+1}.</strong> ${q.question}</div>
+      <div class="quiz-choices">${choicesHtml}</div>
+      <div class="quiz-progress">Progress: ${cur+1}/${questions.length}</div>
+    </div>
+  `;
 
 }
 
