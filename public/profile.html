@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Profile</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body class="profile-container">
+
+        <div class="topButton">
+        <button class="profile-logout-btn" id="logoutBtn">Logout</button>
+        <div class="buttonSeparator"> </div>
+        <button class="quizapp-btn" onclick=" window.location.href='/index.html'">Home</button>
+        <div class="buttonSeparator"> </div>
+        <button class="quizapp-btn" onclick=" window.location.href='/leaderboard.html'">Leaderboard</button>
+        </div>
+
+    <div class="profile-header">
+
+
+        <h2>Welcome, <span id="username"></span></h2>
+
+    </div>
+
+    <div class="profile-history">
+        <h3>Quiz History</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Report</th>
+                </tr>
+            </thead>
+            <tbody id="historyBody"></tbody>
+        </table>
+    </div>
+
+    <div class="playAgainButton">
+    <button class="quizapp-btn" onclick="window.location.href='/quiz.html'">Play Quiz</button>
+    <div class="buttonSeparator"> </div>
+    <button class="quizapp-btn" onclick="window.location.href='/quiz.html?trivia=true'">Play Trivia</button>
+    </div>
+    <!-- Report Modal -->
+    <div id="reportModal" class="modal" style="display:none;">
+        <div class="modal-content">
+          <div class="modalButton">
+            <span id="closeModal" class="close">&times;</span>
+          </div>
+            <h3>Quiz Report – <span id="modalDate"></span></h3>
+            <div id="modalReports"></div>
+        </div>
+    </div>
+
+      <!-- Question Modal (#2) -->
+  <div id="questionModal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <div class="modalButton">
+        <span id="closeQuestionModal" class="close">&times;</span>
+      </div>
+        <h3>Questions & Answers</h3>
+        <div id="questionModalContent"></div>
+    </div>
+  </div>
+
+    <script src="./javascripts/profile.js"></script>
+
+</body>
+</html>
