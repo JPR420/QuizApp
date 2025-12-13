@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www"
   },
   "dependencies": {
     "bcrypt": "^6.0.0",
@@ -17,7 +18,9 @@
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^9.0.1",
     "morgan": "~1.9.1",
-    "node-fetch": "^2.7.0",
+    "node-fetch": "^2.7.0"
+  },
+  "devDependencies": {
     "nodemon": "^3.1.11"
   }
 }
