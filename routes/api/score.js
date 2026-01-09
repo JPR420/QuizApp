@@ -2,28 +2,34 @@
 const express = require('express');
 const router = express.Router();
 const requireAuth = require('../../middleware/auth');
-const user = require('../../models/user'); // use User model
+const pool = require('../../db');
 
 // Save a score
 router.post('/save', requireAuth, async (req, res) => {
   try {
     const { score, totalQuestions, details } = req.body;
 
+    if (!score || !totalQuestions) {
+      return res.status(400).json({ message: 'Missing score or totalQuestions' });
+    }
 
-    if (!req.user) return res.status(401).json({ message: 'Not authenticated' });
+    const userId = req.user.id;
 
-    // Push new score into user's scores array
-    req.user.scores.push({
-      score,
-      total: totalQuestions,
-      details: details 
+    const { rows } = await pool.query(
+      `
+      INSERT INTO scores (user_id, score, total, details)
+      VALUES ($1, $2, $3, $4)
+      RETURNING id, score, total, details, created_at
+      `,
+      [userId, score, totalQuestions, details || []]
+    );
+
+    res.json({
+      message: 'Score saved',
+      score: rows[0]
     });
-
-    await req.user.save();
-
-    res.json({ message: 'Score saved', scores: req.user.scores });
   } catch (err) {
-    console.error(err);
+    console.error('Save score error:', err);
     res.status(500).json({ message: 'Could not save score' });
   }
 });
