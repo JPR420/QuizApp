@@ -4,7 +4,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const mongoose = require('mongoose');
+
+require('./db');
 
 
 var indexRouter = require('./routes/index');
@@ -16,23 +17,8 @@ const leaderboard = require ( './routes/api/leaderboard')
 const triviaRouter = require('./routes/api/trivia');
 var app = express();
 
-MONGO_URI = '';
-MONGO_URI = process.env.MONGODB_URI;
- 
-
-const continueWithMongoDB = () => {
-  mongoose.connect(MONGO_URI)
-  .then(() => console.log('MongoDB connected'))
-  .catch(err => console.error('MongoDB connection error:', err));
-}
 
 
-
-if  (MONGO_URI === '') {
-  console.error('\nMONGO_URI is not set');
-} else {
-  continueWithMongoDB();
-}
 
 
 
