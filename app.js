@@ -15,10 +15,10 @@ const apiAuth = require('./routes/api/auth');
 const scoreRoutes = require('./routes/api/score');
 const leaderboard = require ( './routes/api/leaderboard')
 const triviaRouter = require('./routes/api/trivia');
+const historyRoute = require('./routes/api/history');
+
+
 var app = express();
-
-
-
 
 
 
@@ -41,6 +41,7 @@ app.use('/api/auth', apiAuth);
 app.use('/api/score', scoreRoutes);
 app.use('/api/leaderboard', leaderboard);
 app.use('/api/trivia', triviaRouter);
+app.use('/api/history', historyRoute);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

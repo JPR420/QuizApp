@@ -58,8 +58,12 @@ router.post('/login', async (req, res) => {
 });
 
 // ME
-router.get('/me', requireAuth, async (req, res) => {
-  res.json({ user: req.user });
+router.get('/me', requireAuth, (req, res) => {
+  res.json({
+    id: req.user.id,
+    username: req.user.username,
+    email: req.user.email
+  });
 });
 
 // LOGOUT
